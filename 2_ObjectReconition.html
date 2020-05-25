@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="zh-TW"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>新手也會用AI | 物件識別 | TensorFlow | ICTHK Blog</title><meta name="description" content="新手也會用AI | 物件識別 | TensorFlow"><meta name="keywords" content="Beginner,AI,Machine Learning,TensorFlow,kenlwk,物件識別,人工智能,新手也會用AI,個人博客"><meta name="author" content="icthk"><meta name="copyright" content="icthk"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon2.jpg"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="http://icthk.github.io/2_ObjectReconition"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="新手也會用AI | 物件識別 | TensorFlow"><meta name="twitter:description" content="新手也會用AI | 物件識別 | TensorFlow"><meta name="twitter:image" content="https://i.imgur.com/B8hli89.png"><meta property="og:type" content="article"><meta property="og:title" content="新手也會用AI | 物件識別 | TensorFlow"><meta property="og:url" content="http://icthk.github.io/2_ObjectReconition"><meta property="og:site_name" content="ICTHK Blog"><meta property="og:description" content="新手也會用AI | 物件識別 | TensorFlow"><meta property="og:image" content="https://i.imgur.com/B8hli89.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="prev" title="新手也會用AI | 訓練自己的模型 | 自定義的物件識別 | 人工智能 | TensorFlow" href="http://icthk.github.io/3_CustomObjectReconition.html"><link rel="next" title="Linux簡易教學 | 基本指令 | 作業系統" href="http://icthk.github.io/5_Linux_Commands.html"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查詢的內容:${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"cookieDomain":"icthk.github.io","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'true',
+  copy: {
+    success: '複製成功',
+    error: '複製錯誤',
+    noSupport: '瀏覽器不支持'
+  },
+  bookmark: {
+    title: '添加書籤',
+    message_prev: '按',
+    message_next: '鍵將本頁加入書籤'
+  },
+  runtime_unit: '天'
+
+  
+}</script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目錄</div><div class="sidebar-toc__progress"><span class="progress-notice">你已經讀了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介紹"><span class="toc-number">1.</span> <span class="toc-text">介紹</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.1.</span> <span class="toc-text">前言</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置環境"><span class="toc-number">2.</span> <span class="toc-text">配置環境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安裝Python"><span class="toc-number">2.1.</span> <span class="toc-text">安裝Python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安裝Tensorflow"><span class="toc-number">2.2.</span> <span class="toc-text">安裝Tensorflow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安裝相關庫"><span class="toc-number">2.3.</span> <span class="toc-text">安裝相關庫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下載物件識別API"><span class="toc-number">2.4.</span> <span class="toc-text">下載物件識別API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#編譯-Protobuf-函式庫"><span class="toc-number">2.5.</span> <span class="toc-text">編譯 Protobuf 函式庫</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#運行範例程式"><span class="toc-number">3.</span> <span class="toc-text">運行範例程式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#開啟-Jupyter-Notebook"><span class="toc-number">3.1.</span> <span class="toc-text">開啟 Jupyter Notebook</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#運行範例程式-1"><span class="toc-number">3.2.</span> <span class="toc-text">運行範例程式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tf-gfile-GFile-不適用而報錯的解決方法"><span class="toc-number">3.3.</span> <span class="toc-text">tf.gfile.GFile 不適用而報錯的解決方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ImportError-cannot-import-name-‘string-int-label-map-pb2’報錯解決方法"><span class="toc-number">3.4.</span> <span class="toc-text">ImportError: cannot import name ‘string_int_label_map_pb2’報錯解決方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自行加入圖片進行物件識別"><span class="toc-number">4.</span> <span class="toc-text">自行加入圖片進行物件識別</span></a></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://i.imgur.com/B8hli89.png)"><div id="page-header"><span class="pull-left"> <a class="blog_title" id="site-name" href="/">ICTHK Blog</a></span><div class="open toggle-menu pull-right"><div class="menu-icon-first"></div><div class="menu-icon-second"></div><div class="menu-icon-third"></div></div><span class="pull-right menus"><div class="mobile_author_icon"><img class="lozad" data-src="/img/avatar2.jpg" onerror="onerror=null;src='/img/friend_404.gif'"><div class="mobile_author-info__description"></div></div><hr><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> TimeLine</span></a><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-coffee"></i><span> Message</span></a><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a><script>document.body.addEventListener('touchstart', function(){ });</script></div></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title"><div class="posttitle">新手也會用AI | 物件識別 | TensorFlow</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 發表於 2019-07-18<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> 更新於 2019-07-30</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Machine-Learning/">Machine Learning</a></span></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>AI (Artificial Intelligence)可謂是最近最熱門的科技技術之一，作為電腦新手，想要應用AI技術其實並不難。皆因現在很多開發公司已經提供了不同版本的API模型。我們只需配置適當開發環境，並安裝相應的模型便可一嘗AI入門技術。因此，就算你沒有相關知識，也可以實現不少AI功能。在是次應用中，我們將會實現物件檢測(object recognition)功能，用到的API是到Google釋出的Tensorflow Object Detection模型。模型效果圖如下，是不是很心動想創造屬於自己的物件檢測程式呢？我們一起動手試下吧！</p>
+<img src="https://i.imgur.com/DhCdMuM.jpg" width="507" height="337.5">
+<!-- ![想要完成以上效果嗎？其實並不難！](https://i.imgur.com/DhCdMuM.jpg)-->
+<br><br>
+
+<h2 id="配置環境"><a href="#配置環境" class="headerlink" title="配置環境"></a>配置環境</h2><br>
+
+<h3 id="安裝Python"><a href="#安裝Python" class="headerlink" title="安裝Python"></a>安裝Python</h3><p>Windows 以及 MacOS 用戶可直接從Python官網下載安裝，建議安裝3.7版本<br>Linux用戶則可透過從終端機(Terminal)安裝，指令如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3.7</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="安裝Tensorflow"><a href="#安裝Tensorflow" class="headerlink" title="安裝Tensorflow"></a>安裝Tensorflow</h3><p>打開你的終端機(Terminal)，並且按照以下指令安裝配置環境。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install tensorflow</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="安裝相關庫"><a href="#安裝相關庫" class="headerlink" title="安裝相關庫"></a>安裝相關庫</h3><p>Windows 以及 MacOS 用戶透過從終端機(Terminal)安裝</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pip3 install --user Cython</span><br><span class="line">pip3 install --user contextlib2</span><br><span class="line">pip3 install --user pillow</span><br><span class="line">pip3 install --user lxml</span><br><span class="line">pip3 install --user jupyter</span><br><span class="line">pip3 install --user matplotlib</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>Ubuntu Linux用戶則可以使用apt安裝其餘的套件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install protobuf-compiler python-pil python-lxml python-tk</span><br><span class="line">pip3 install --user Cython</span><br><span class="line">pip3 install --user contextlib2</span><br><span class="line">pip3 install --user jupyter</span><br><span class="line">pip3 install --user matplotlib</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="下載物件識別API"><a href="#下載物件識別API" class="headerlink" title="下載物件識別API"></a>下載物件識別API</h3><p>新建資料夾”Tensorflow”，到API的Github官網 <a href="https://github.com/tensorflow/models" target="_blank" rel="noopener">https://github.com/tensorflow/models</a><br>Clone/下載 models-master資料夾(下載需時請耐心等待)，重命名為models，放進Tensorflow內，目錄示意圖如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">TensorFlow</span><br><span class="line">└─ models</span><br><span class="line">    ├── official</span><br><span class="line">    ├── research</span><br><span class="line">    ├── samples</span><br><span class="line">    └── tutorials</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="編譯-Protobuf-函式庫"><a href="#編譯-Protobuf-函式庫" class="headerlink" title="編譯 Protobuf 函式庫"></a>編譯 Protobuf 函式庫</h3><p>在使用Tensorflow Object Detection API前，需要先編譯 Protobuf 函式庫<br>打開終端機，依次進入Tensorflow、models，最終到達research目錄內，方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd Tensorflow/models/research</span><br></pre></td></tr></table></figure>
+
+<p>輸入以下指令，編譯 Protobuf 函式庫</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protoc object_detection/protos/*.proto --python_out=.</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>輸入以下指令將 models/research 與 models/research/slim 加入 PYTHONPATH 環境變數中<br>這個步驟在每次使用 Tensorflow Object Detection API 之前都要執行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="運行範例程式"><a href="#運行範例程式" class="headerlink" title="運行範例程式"></a>運行範例程式</h2><br>
+
+<h3 id="開啟-Jupyter-Notebook"><a href="#開啟-Jupyter-Notebook" class="headerlink" title="開啟 Jupyter Notebook"></a>開啟 Jupyter Notebook</h3><p>Tensorflow Object Detection API 的原始碼中有附帶一個簡單的入門範例程式，位於 models/research/object_detection/object_detection_tutorial.ipynb，適合初學者來學習如何使用這套 API，這個範例程式是一個 .ipynb 的文件，需要在 IPython Notebook 環境中執行。因此，我們需要開啟並且運行Jupyter Notebook，並找到以下路徑。</p>
+<img src="https://i.imgur.com/WEEF78K.png">
+<br><br>
+
+<h3 id="運行範例程式-1"><a href="#運行範例程式-1" class="headerlink" title="運行範例程式"></a>運行範例程式</h3><p>打開object_detection_tutorial.ipynb<br>點擊”Cell”，選擇”Run All” 運行程式的所有代碼    </p>
+<img src="https://i.imgur.com/CUukqTI.png">
+<br><br>
+
+<center><font color="#000000" size="4">頁面拉到最底，查看輸出結果吧！</font></center>
+<img src="https://i.imgur.com/cTr8LJY.png" width="75%" height="75%">
+<br><br>
+
+
+<h3 id="tf-gfile-GFile-不適用而報錯的解決方法"><a href="#tf-gfile-GFile-不適用而報錯的解決方法" class="headerlink" title="tf.gfile.GFile 不適用而報錯的解決方法"></a><font color="#ff0000" size="5">tf.gfile.GFile 不適用而報錯的解決方法</font></h3><img src="https://i.imgur.com/PCCho4q.png">
+<br><br>
+
+<p>根據指示，找到 utils/label_map_util.py 檔案，在137行把 tf.gfile.GFile 修改為 tf.io.gfile.GFile ，操作如下：<br><img src="https://i.imgur.com/cfBNBk5.png" width="75%" height="75%"><br><br><br></p>
+<h3 id="ImportError-cannot-import-name-‘string-int-label-map-pb2’報錯解決方法"><a href="#ImportError-cannot-import-name-‘string-int-label-map-pb2’報錯解決方法" class="headerlink" title="ImportError: cannot import name ‘string_int_label_map_pb2’報錯解決方法"></a><font color="#ff0000" size="5">ImportError: cannot import name ‘string_int_label_map_pb2’報錯解決方法</font></h3><p>這個錯誤很大機會出現在MacOS或者Windows系統用戶，因為其系統無法從源文件匯入資料<br>解決方法如下，來到object_detection/utils資料夾，開啟label_map_util.py修改以下代碼<br><br><br><img src="https://i.imgur.com/bmzL7tx.png" width="75%" height="75%"><br>若問題依舊，需要在終端機 位置（Tensorflow/models/research）運行以下兩句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">protoc object_detection/protos/*.proto --python_out=.</span><br><span class="line">export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim</span><br></pre></td></tr></table></figure>
+
+<p><br><br></p>
+<h2 id="自行加入圖片進行物件識別"><a href="#自行加入圖片進行物件識別" class="headerlink" title="自行加入圖片進行物件識別"></a>自行加入圖片進行物件識別</h2><p>最後，我們可以加入圖片測試識別的準確度，這裡我用了 image3.jpg 及image4.jpg<br>把圖片加入到 models/research/object_detection/test_images 資料夾內，命名圖片為”imageX.jpg”，X為數字。<br><img src="https://i.imgur.com/jm6g7rQ.png" width="35%" height="35%"><br><br><br><br>然後後打開Jupyter Notebook，回到 object_detection_tutorial.ipynb 中，找到 “Detection”功能代碼所在 (122行)<br>根據圖片名稱，修改其中第六行的range()內的數值，用我上面的例子，我只想檢測圖片image3.jpg 和image4.jpg<br>因此，我要修改為 range(3, 5)，第一個數值是imageX中X的值 = 3，第二個數值則是第二張圖片imageX中的X+1 = 5<br><img src="https://i.imgur.com/rTCe2wI.png" width="75%" height="75%"><br><br><br></p>
+<center><font color="#000000" size="5">運行成功，看看識別結果！</font></center>
+<img src="https://i.imgur.com/5ZFk0i7.png" width="75%" height="75%">
+<br><br>
+
+<center><font color="#000000" size="5">希望即使不熟電腦/AI的你，也能嘗試使用AI技術</font></center>
+<br>
+今天的分享就到此了，若有任何疑問，歡迎留言，謝謝
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">icthk</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章鏈接: </span><span class="post-copyright-info"><a href="http://icthk.github.io/2_ObjectReconition.html">http://icthk.github.io/2_ObjectReconition.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版權聲明: </span><span class="post-copyright-info">本博客所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明來自 <a href="http://icthk.github.io" target="_blank">ICTHK Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Beginner/">Beginner    </a><a class="post-meta__tags" href="/tags/AI/">AI    </a><a class="post-meta__tags" href="/tags/Machine-Learning/">Machine Learning    </a><a class="post-meta__tags" href="/tags/TensorFlow/">TensorFlow    </a></div><div class="post_share"><div class="social-share" data-image="https://i.imgur.com/B8hli89.png" data-sites="google,facebook,twitter,wechat,weibo"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull-left"><a href="/3_CustomObjectReconition.html"><img class="prev_cover lozad" data-src="https://i.imgur.com/P6G6mJD.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">上一篇</div><div class="prev_info"><span>新手也會用AI | 訓練自己的模型 | 自定義的物件識別 | 人工智能 | TensorFlow</span></div></a></div><div class="next-post pull-right"><a href="/5_Linux_Commands.html"><img class="next_cover lozad" data-src="https://i.imgur.com/5sR3YSm.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>Linux簡易教學 | 基本指令 | 作業系統</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span> 相關推薦</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/3_CustomObjectReconition.html" title="新手也會用AI | 訓練自己的模型 | 自定義的物件識別 | 人工智能 | TensorFlow"><img class="relatedPosts_cover lozad" data-src="https://i.imgur.com/P6G6mJD.png"><div class="relatedPosts_title">新手也會用AI | 訓練自己的模型 | 自定義的物件識別 | 人工智能 | TensorFlow</div></a></div><div class="relatedPosts_item"><a href="/6_Linux_Remote_Control.html" title="Linux遠程操控 | 機器學習 | 模擬雲計算 TensorFlow | 搭建自己的雲計算平台"><img class="relatedPosts_cover lozad" data-src="https://i.imgur.com/r8d8Q6s.jpg"><div class="relatedPosts_title">Linux遠程操控 | 機器學習 | 模擬雲計算 TensorFlow | 搭建自己的雲計算平台</div></a></div><div class="relatedPosts_item"><a href="/5_Linux_Commands.html" title="Linux簡易教學 | 基本指令 | 作業系統"><img class="relatedPosts_cover lozad" data-src="https://i.imgur.com/5sR3YSm.png"><div class="relatedPosts_title">Linux簡易教學 | 基本指令 | 作業系統</div></a></div><div class="relatedPosts_item"><a href="/4_Linux_Install.html" title="如何安裝Linux | Windows | MacOS"><img class="relatedPosts_cover lozad" data-src="https://i.imgur.com/dFP7D9M.jpg"><div class="relatedPosts_title">如何安裝Linux | Windows | MacOS</div></a></div></div><div class="clear_both"></div></div></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2020 By icthk</div><div class="framework-info"><span>Power by </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div><div class="footer_custom_text">Welcome to my blog</div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><section class="rightside" id="rightside"><i class="fa fa-book" id="readmode" title="閲讀模式"> </i><i class="fa fa-plus" id="font_plus" title="放大字體"></i><i class="fa fa-minus" id="font_minus" title="縮小字體"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="簡繁轉換">简</a><i class="fa fa-moon-o nightshift" id="nightshift" title="夜間模式"></i></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script async src="/js/search/local-search.js"></script><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="/js/third-party/fireworks.js"></script><script src="/js/nightshift.js"></script><script id="ribbon" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/js/piao.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@1.2.2/instantpage.min.js" type="module"></script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
