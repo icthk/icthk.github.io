@@ -175,7 +175,7 @@
     <link href="http://icthk.github.io/1_hello-world.html"/>
     <id>http://icthk.github.io/1_hello-world.html</id>
     <published>2019-07-17T08:05:07.340Z</published>
-    <updated>2020-05-25T19:51:03.878Z</updated>
+    <updated>2020-05-25T19:54:26.564Z</updated>
     
     <content type="html"><![CDATA[<p><br><font size="10">Welcome to my <a href="https://kenlwk.github.io" target="_blank" rel="noopener">blog</a>! </font><br><br><font size="5"><br>This is my very first post. In this blog, I will record, summerize and share experiences related to various types of computing technologies. Hope that we can make greater progress with our efforts together here.<br>For any questions, you can leave your comment on MessageBoard.<br>Enjoy~<br></font><br><br><br></p>]]></content>
     
@@ -188,7 +188,7 @@
     
     </summary>
     
-      <category term="ICTHK" scheme="http://icthk.github.io/categories/ICTHK/"/>
+      <category term="Blog" scheme="http://icthk.github.io/categories/Blog/"/>
     
     
       <category term="Post" scheme="http://icthk.github.io/tags/Post/"/>
