@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://icthk.github.io/6_Linux_Remote_Control.html</loc>
+    
+    <lastmod>2020-05-29T04:43:25.775Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://icthk.github.io/5_Linux_Commands.html</loc>
+    
+    <lastmod>2020-05-29T04:42:40.577Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://icthk.github.io/4_Linux_Install.html</loc>
+    
+    <lastmod>2020-05-29T04:42:03.460Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://icthk.github.io/3_CustomObjectReconition.html</loc>
     
-    <lastmod>2020-05-29T04:39:19.819Z</lastmod>
+    <lastmod>2020-05-29T04:41:37.690Z</lastmod>
     
   </url>
   
@@ -26,27 +47,6 @@
     <loc>http://icthk.github.io/1_hello-world.html</loc>
     
     <lastmod>2020-05-25T19:54:26.564Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://icthk.github.io/6_Linux_Remote_Control.html</loc>
-    
-    <lastmod>2020-05-25T19:51:54.358Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://icthk.github.io/5_Linux_Commands.html</loc>
-    
-    <lastmod>2020-05-25T19:51:45.396Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://icthk.github.io/4_Linux_Install.html</loc>
-    
-    <lastmod>2020-05-25T19:51:33.671Z</lastmod>
     
   </url>
   
