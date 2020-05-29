@@ -2,37 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://icthk.github.io/4_Linux_Install.html</loc>
+    
+    <lastmod>2020-05-29T08:52:20.852Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://icthk.github.io/6_Linux_Remote_Control.html</loc>
     
-    <lastmod>2020-05-29T04:47:59.390Z</lastmod>
+    <lastmod>2020-05-29T08:51:32.569Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://icthk.github.io/7_VPN_Fundamental.html</loc>
+    
+    <lastmod>2020-05-29T08:44:25.381Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://icthk.github.io/5_Linux_Commands.html</loc>
     
-    <lastmod>2020-05-29T04:42:40.577Z</lastmod>
+    <lastmod>2020-05-29T08:44:01.331Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://icthk.github.io/4_Linux_Install.html</loc>
+    <loc>http://icthk.github.io/1_hello-world.html</loc>
     
-    <lastmod>2020-05-29T04:42:03.460Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://icthk.github.io/3_CustomObjectReconition.html</loc>
-    
-    <lastmod>2020-05-29T04:41:37.690Z</lastmod>
+    <lastmod>2020-05-29T08:43:27.982Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://icthk.github.io/2_ObjectReconition.html</loc>
     
-    <lastmod>2020-05-29T04:37:09.492Z</lastmod>
+    <lastmod>2020-05-29T08:43:07.793Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://icthk.github.io/3_CustomObjectReconition.html</loc>
+    
+    <lastmod>2020-05-29T08:42:47.874Z</lastmod>
     
   </url>
   
@@ -40,13 +54,6 @@
     <loc>http://icthk.github.io/about/index.html</loc>
     
     <lastmod>2020-05-26T09:04:12.466Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://icthk.github.io/1_hello-world.html</loc>
-    
-    <lastmod>2020-05-25T19:54:26.564Z</lastmod>
     
   </url>
   
