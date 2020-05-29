@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://icthk.github.io/7_VPN_Fundamental.html</loc>
+    
+    <lastmod>2020-05-29T08:55:56.605Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://icthk.github.io/4_Linux_Install.html</loc>
     
     <lastmod>2020-05-29T08:52:20.852Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://icthk.github.io/6_Linux_Remote_Control.html</loc>
     
     <lastmod>2020-05-29T08:51:32.569Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://icthk.github.io/7_VPN_Fundamental.html</loc>
-    
-    <lastmod>2020-05-29T08:44:25.381Z</lastmod>
     
   </url>
   
