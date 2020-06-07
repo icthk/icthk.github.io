@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://icthk.github.io/9_Tensorflow2_Python.html</loc>
+    <lastmod>2020-06-05</lastmod>
+  </url>  <url>
+    <loc>http://icthk.github.io/8_Tensorflow2_Intro.html</loc>
+    <lastmod>2020-06-03</lastmod>
+  </url>  <url>
     <loc>http://icthk.github.io/6_Linux_Remote_Control.html</loc>
     <lastmod>2020-05-31</lastmod>
   </url>  <url>
