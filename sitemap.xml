@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://icthk.github.io/10_Tensorflow2_Python2.html</loc>
+    <loc>https://icthk.github.io/11_Tensorflow2_Numpy.html</loc>
     
-    <lastmod>2020-06-09T13:34:23.587Z</lastmod>
+    <lastmod>2020-07-04T05:02:00.485Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://icthk.github.io/9_Tensorflow2_Python.html</loc>
     
-    <lastmod>2020-06-09T11:09:04.918Z</lastmod>
+    <lastmod>2020-06-29T09:17:54.328Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://icthk.github.io/10_Tensorflow2_Python2.html</loc>
+    
+    <lastmod>2020-06-29T09:17:38.589Z</lastmod>
     
   </url>
   
