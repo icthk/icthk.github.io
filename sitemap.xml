@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://icthk.github.io/link/index.html</loc>
+    
+    <lastmod>2020-07-26T06:28:17.769Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://icthk.github.io/messageboard/index.html</loc>
+    
+    <lastmod>2020-07-26T06:25:48.617Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://icthk.github.io/tags/index.html</loc>
+    
+    <lastmod>2020-07-26T06:11:23.075Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://icthk.github.io/categories/index.html</loc>
+    
+    <lastmod>2020-07-26T06:07:34.462Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://icthk.github.io/about/index.html</loc>
+    
+    <lastmod>2020-07-26T05:58:24.660Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://icthk.github.io/12_Tensorflow2_visualization.html</loc>
+    
+    <lastmod>2020-07-26T05:29:36.345Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://icthk.github.io/11_Tensorflow2_Numpy.html</loc>
     
     <lastmod>2020-07-04T05:02:00.485Z</lastmod>
@@ -75,41 +117,6 @@
     <loc>https://icthk.github.io/1_hello-world.html</loc>
     
     <lastmod>2020-05-30T15:51:03.796Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://icthk.github.io/about/index.html</loc>
-    
-    <lastmod>2020-05-26T09:04:12.466Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://icthk.github.io/link/index.html</loc>
-    
-    <lastmod>2019-07-18T02:44:17.397Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://icthk.github.io/messageboard/index.html</loc>
-    
-    <lastmod>2019-07-18T02:43:59.915Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://icthk.github.io/categories/index.html</loc>
-    
-    <lastmod>2019-07-18T02:43:39.104Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://icthk.github.io/tags/index.html</loc>
-    
-    <lastmod>2019-07-18T02:43:06.270Z</lastmod>
     
   </url>
   
