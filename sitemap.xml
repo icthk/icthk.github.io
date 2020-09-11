@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://icthk.github.io/13_Tensorflow2_Tensor.html</loc>
+    
+    <lastmod>2020-09-11T14:26:52.987Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://icthk.github.io/link/index.html</loc>
     
     <lastmod>2020-07-26T06:28:17.769Z</lastmod>
